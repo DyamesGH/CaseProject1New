@@ -95,15 +95,15 @@ public class FrameJobCreation extends JFrame {
 		lblNewLabel.setBounds(47, 367, 65, 14);
 		contentPane.add(lblNewLabel);
 		
-		JButton btnNewButton = new JButton("Add Material");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnAddMaterial = new JButton("Add Material");
+		btnAddMaterial.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmAddMaterial = new FrameAddMaterial(job);
 				frmAddMaterial.setVisible(true);
 			}
 		});
-		btnNewButton.setBounds(270, 363, 121, 23);
-		contentPane.add(btnNewButton);
+		btnAddMaterial.setBounds(125, 363, 121, 23);
+		contentPane.add(btnAddMaterial);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(47, 392, 344, 250);
@@ -121,6 +121,14 @@ public class FrameJobCreation extends JFrame {
 		JButton btnCancel = new JButton("Cancel");
 		btnCancel.setBounds(254, 653, 121, 23);
 		contentPane.add(btnCancel);
+		
+		JButton btnRemoveMaterial = new JButton("Remove Material");
+		btnRemoveMaterial.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnRemoveMaterial.setBounds(270, 363, 121, 23);
+		contentPane.add(btnRemoveMaterial);
 	}
 	
 	public static void addMaterial(Object[] rowData) {
