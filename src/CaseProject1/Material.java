@@ -7,10 +7,15 @@ public class Material {
 	
 	private String name;
 	private int quantity;
-	private boolean isAvailable;
-	private Date orderDate; 
+	private float cost;
+	private float totalCost;
 	
-	
+	public Material(String name, int quantity, float cost){
+		this.name = name;
+		this.quantity = quantity;
+		this.cost = cost;
+		this.totalCost = cost*quantity;
+	}
 	
 	public String getName() {
 		return name;
@@ -24,21 +29,27 @@ public class Material {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	
-	
-	public Material(String name, int quantity){
-		this.name = name;
-		this.quantity = quantity;
+
+	public float getCost() {
+		return cost;
 	}
+
+	public void setCost(float cost) {
+		this.cost = cost;
+	}
+
+	public float getTotalCost() {
+		return totalCost;
+	}
+
+	public void setTotalCost(float totalCost) {
+		this.totalCost = totalCost;
+	}
+	
 	
 
-	public boolean checkAvailability() {
-		if(isAvailable == true) {
-			return true;
-		} else {
-			return false;
-		}
-	}
+	
+
 	
 	
 }
