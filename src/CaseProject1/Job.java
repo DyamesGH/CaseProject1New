@@ -31,6 +31,9 @@ public class Job {
 	public void addMaterial(String name, int quantity, float cost) {
 		materialsList.add(new Material(name, quantity, cost));
 	}
+	public void addMaterial(Material material) {
+		materialsList.add(material);
+	}
 	
 	public void viewMaterials() {
 		for (Material i : materialsList) {
