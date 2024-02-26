@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JSpinner;
 import javax.swing.JButton;
@@ -23,6 +24,7 @@ public class FrameAddMaterial extends JFrame {
 	private JTextField txtMaterial;
 	private FrameJobCreation frmJobCreation;
 	private JTextField txtCost;
+	private JSpinner spinner;
 
 	
 	public FrameAddMaterial() {
@@ -47,7 +49,7 @@ public class FrameAddMaterial extends JFrame {
 		contentPane.add(txtMaterial);
 		txtMaterial.setColumns(10);
 		
-		JSpinner spinner = new JSpinner();
+		spinner = new JSpinner();
 		spinner.setBounds(203, 110, 56, 20);
 		contentPane.add(spinner);
 		
@@ -73,7 +75,6 @@ public class FrameAddMaterial extends JFrame {
 		JButton btnConfirm = new JButton("Confirm");
 		btnConfirm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
 				Object[] rowData = new Object[4];
 				rowData[0] = txtMaterial.getText();
 				rowData[1] = txtCost.getText();
@@ -81,10 +82,9 @@ public class FrameAddMaterial extends JFrame {
 				Double totalCost = Double.parseDouble(txtCost.getText()) * ((Integer) spinner.getValue()).intValue();
 				rowData[3] = totalCost;
 				FrameJobCreation.addMaterial(rowData);
-				txtMaterial.setText(null);
-				spinner.setValue(0);
+				clearControls();
 				dispose();
-			
+				
 			}
 		});
 		btnConfirm.setBounds(22, 162, 89, 23);
@@ -99,6 +99,7 @@ public class FrameAddMaterial extends JFrame {
 		JButton btnCancel = new JButton("Cancel");
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				clearControls();
 				dispose();
 			}
 		});
@@ -106,5 +107,9 @@ public class FrameAddMaterial extends JFrame {
 		contentPane.add(btnCancel);	
 	}
 	
-	
+	public void clearControls() {
+		txtMaterial.setText(null);
+		txtCost.setText(null);
+		spinner.setValue(0);
+	}
 }

@@ -24,7 +24,6 @@ public class FrameJobCreation extends JFrame {
 	private JTextField txtJobNumber;
 	private JTextField txtJobDescription;
 	private JTextField txtEstimatedCompletion;
-	private JTextField txtJobStartDate;
 	private JTextField txtCustomerName;
 	private static JTable tblMaterials;
 	private String[] columns = {"Material", "Quantity", "Cost", "Total Cost"};
@@ -35,7 +34,7 @@ public class FrameJobCreation extends JFrame {
 		setAlwaysOnTop(true);
 		setTitle("Job Creation");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 458, 650);
+		setBounds(100, 100, 458, 750);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLocationRelativeTo(null);
@@ -58,15 +57,15 @@ public class FrameJobCreation extends JFrame {
 		contentPane.add(lblJobDescription);
 		
 		JLabel lblEstimatedCompletion = new JLabel("Estimated Job's Time of Completion:");
-		lblEstimatedCompletion.setBounds(24, 147, 218, 14);
+		lblEstimatedCompletion.setBounds(24, 186, 218, 14);
 		contentPane.add(lblEstimatedCompletion);
 		
 		JLabel lblJobStartDate = new JLabel("Job Start Date:");
-		lblJobStartDate.setBounds(24, 184, 106, 14);
+		lblJobStartDate.setBounds(24, 220, 106, 14);
 		contentPane.add(lblJobStartDate);
 		
 		JLabel lblCustomerName = new JLabel("Customer Name:");
-		lblCustomerName.setBounds(24, 220, 106, 14);
+		lblCustomerName.setBounds(24, 149, 106, 14);
 		contentPane.add(lblCustomerName);
 		
 		txtJobNumber = new JTextField();
@@ -80,22 +79,17 @@ public class FrameJobCreation extends JFrame {
 		txtJobDescription.setColumns(10);
 		
 		txtEstimatedCompletion = new JTextField();
-		txtEstimatedCompletion.setBounds(242, 144, 171, 20);
+		txtEstimatedCompletion.setBounds(242, 183, 171, 20);
 		contentPane.add(txtEstimatedCompletion);
 		txtEstimatedCompletion.setColumns(10);
 		
-		txtJobStartDate = new JTextField();
-		txtJobStartDate.setBounds(242, 181, 171, 20);
-		contentPane.add(txtJobStartDate);
-		txtJobStartDate.setColumns(10);
-		
 		txtCustomerName = new JTextField();
-		txtCustomerName.setBounds(242, 217, 171, 20);
+		txtCustomerName.setBounds(242, 146, 171, 20);
 		contentPane.add(txtCustomerName);
 		txtCustomerName.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("Materials");
-		lblNewLabel.setBounds(47, 282, 65, 14);
+		lblNewLabel.setBounds(47, 367, 65, 14);
 		contentPane.add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("Add Material");
@@ -105,11 +99,11 @@ public class FrameJobCreation extends JFrame {
 				frmAddMaterial.setVisible(true);
 			}
 		});
-		btnNewButton.setBounds(270, 278, 121, 23);
+		btnNewButton.setBounds(270, 363, 121, 23);
 		contentPane.add(btnNewButton);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(47, 307, 344, 250);
+		scrollPane.setBounds(47, 392, 344, 250);
 		contentPane.add(scrollPane);
 		
 		tblMaterials = new JTable(modelMaterials);
@@ -118,11 +112,11 @@ public class FrameJobCreation extends JFrame {
 		scrollPane.setViewportView(tblMaterials);
 		
 		JButton btnConfirm = new JButton("Confirm");
-		btnConfirm.setBounds(51, 568, 121, 23);
+		btnConfirm.setBounds(51, 653, 121, 23);
 		contentPane.add(btnConfirm);
 		
 		JButton btnCancel = new JButton("Cancel");
-		btnCancel.setBounds(254, 568, 121, 23);
+		btnCancel.setBounds(254, 653, 121, 23);
 		contentPane.add(btnCancel);
 	}
 	
