@@ -7,9 +7,9 @@ public class Job {
 
 	private int jobNumber;
 	private String jobDescription;
-	private int jobTimeEstimate;
-	private Date jobScheduleStart;
-	private Date jobScheduleFinish;
+	private float jobTimeEstimate;
+	private float jobTotalTime;
+	private Date jobStartDate;
 	private String customerName;
 	private static int counter = 1024;
 	private ArrayList<Material> materialsList = new ArrayList<Material>();
@@ -17,26 +17,18 @@ public class Job {
 	
 	
 	
-	public Job(String jobDescription, Date jobScheduleStart, Date jobScheduleFinish, String customerName){
+	public Job(String jobDescription, float jobTimeEstimate, float jobTotalTime, Date jobStartDate, String customerName){
 		
 		this.jobNumber = counter++;
 		this.jobDescription = jobDescription;
-		this.jobScheduleStart = jobScheduleStart;
-		this.jobScheduleFinish = jobScheduleFinish;
+		this.jobTimeEstimate = jobTimeEstimate;
+		this.jobTotalTime = jobTotalTime;
 		this.customerName = customerName;
 		
 	}
 	
-	public void estimateTime(Date jobScheduleStart, Date jobScheduleFinish) {
-	
-		
-
-	}
-	
-	public void addMaterial(String newMaterial, int quantity) {
-			
-		materialsList.add(new Material(newMaterial, quantity));
-		
+	public void addMaterial(String name, int quantity, float cost) {
+		materialsList.add(new Material(name, quantity, cost));
 	}
 	
 	public void viewMaterials() {
