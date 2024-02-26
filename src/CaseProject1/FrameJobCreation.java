@@ -29,8 +29,11 @@ public class FrameJobCreation extends JFrame {
 	private String[] columns = {"Material", "Quantity", "Cost", "Total Cost"};
 	private DefaultTableModel modelMaterials = new DefaultTableModel();
 	private FrameAddMaterial frmAddMaterial;
+	private Job job;
 	
-	public FrameJobCreation() {
+	public FrameJobCreation(Job job) {
+		
+		this.job = job;	
 		setAlwaysOnTop(true);
 		setTitle("Job Creation");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -95,7 +98,7 @@ public class FrameJobCreation extends JFrame {
 		JButton btnNewButton = new JButton("Add Material");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frmAddMaterial = new FrameAddMaterial();
+				frmAddMaterial = new FrameAddMaterial(job);
 				frmAddMaterial.setVisible(true);
 			}
 		});

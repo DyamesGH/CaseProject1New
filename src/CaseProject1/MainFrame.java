@@ -105,7 +105,8 @@ public class MainFrame extends JFrame {
 		JButton btnAddJob = new JButton("Add Job");
 		btnAddJob.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {	
-				frmJobCreation = new FrameJobCreation();
+				Job job = new Job();
+				frmJobCreation = new FrameJobCreation(job);
 				frmJobCreation.setVisible(true);			
 			}
 		});
