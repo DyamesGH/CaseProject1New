@@ -124,15 +124,13 @@ public class MainFrame extends JFrame {
 		btnRemoveJob.setBounds(354, 416, 121, 23);
 		contentPane.add(btnRemoveJob);
 		
-		JButton btnOrderMaterials = new JButton("Order Materials");
-		btnOrderMaterials.addActionListener(new ActionListener() {
+		JButton btnReschedJob = new JButton("Resched Job");
+		btnReschedJob.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frmMaterials = new FrameMaterials();
-				frmMaterials.setVisible(true);
 			}
 		});
-		btnOrderMaterials.setBounds(508, 416, 128, 23);
-		contentPane.add(btnOrderMaterials);
+		btnReschedJob.setBounds(508, 416, 128, 23);
+		contentPane.add(btnReschedJob);
 		
 		JButton btnJobFinish = new JButton("Job Finish");
 		btnJobFinish.setBounds(661, 416, 121, 23);
