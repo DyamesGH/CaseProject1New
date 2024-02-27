@@ -22,7 +22,6 @@ public class MainFrame extends JFrame {
 	
 	private JPanel contentPane;
 	private FrameJobCreation frmJobCreation;
-	private FrameMaterials frmMaterials;
 	private JTable tblIncomingJobs;
 	private JTable tblOngoingJobs;
 	private String[] columns1 = {"Job Number", "Estimated Time", "Date of Start"};
