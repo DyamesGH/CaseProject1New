@@ -25,9 +25,13 @@ public class FrameAddMaterial extends JFrame {
 	private FrameJobCreation frmJobCreation;
 	private JTextField txtCost;
 	private JSpinner spinner;
+	private Material material;
+	private Job job;
 
 	
-	public FrameAddMaterial() {
+	public FrameAddMaterial(Job job) {
+		this.job = job;
+		
 		setTitle("Add Material");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 285, 235);
@@ -75,13 +79,14 @@ public class FrameAddMaterial extends JFrame {
 		JButton btnConfirm = new JButton("Confirm");
 		btnConfirm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				material = new Material(txtMaterial.getText(), ((Integer) spinner.getValue()).intValue(), Float.parseFloat(txtCost.getText()));
 				Object[] rowData = new Object[4];
-				rowData[0] = txtMaterial.getText();
-				rowData[1] = txtCost.getText();
-				rowData[2] = spinner.getValue();
-				Double totalCost = Double.parseDouble(txtCost.getText()) * ((Integer) spinner.getValue()).intValue();
-				rowData[3] = totalCost;
+				rowData[0] = material.getName();
+				rowData[1] = material.getCost();
+				rowData[2] = material.getQuantity();
+				float totalCost = material.getCost() * material.getQuantity();
 				FrameJobCreation.addMaterial(rowData);
+				job.addMaterial(material);
 				clearControls();
 				dispose();
 				

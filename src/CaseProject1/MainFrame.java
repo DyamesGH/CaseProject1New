@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
@@ -28,6 +29,8 @@ public class MainFrame extends JFrame {
 	private String[] columns2 = {"Job Number", "Date of Start"};
 	private DefaultTableModel modelIncomingJobs = new DefaultTableModel();
 	private DefaultTableModel modelOngoingJobs = new DefaultTableModel();
+	private ArrayList<Job> incomingJob = new ArrayList<Job>();
+	private ArrayList<Job> ongoingJob = new ArrayList<Job>();
 
 	/**
 	 * Launch the application.
@@ -105,7 +108,8 @@ public class MainFrame extends JFrame {
 		JButton btnAddJob = new JButton("Add Job");
 		btnAddJob.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {	
-				frmJobCreation = new FrameJobCreation();
+				Job job = new Job();
+				frmJobCreation = new FrameJobCreation(job);
 				frmJobCreation.setVisible(true);			
 			}
 		});
